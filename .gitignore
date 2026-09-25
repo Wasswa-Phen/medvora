@@ -1,17 +1,26 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://maven.apache.org/tools/wrapper/#Usage_with_or_without_Binary_JAR
-.mvn/wrapper/maven-wrapper.jar
-
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
+# IDE & Editor files (IntelliJ, VS Code, Eclipse, NetBeans, AI IDEs)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.vscode/
 .classpath
+.project
+.settings/
+.antigravity/
+.gravity/
+*.gravity
+
+# Build targets & caches (Maven, Gradle)
+target/
+**/target/
+.gradle/
+**/build/
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Maven wrapper jar inclusion rule
+!/**/.mvn/wrapper/maven-wrapper.jar
