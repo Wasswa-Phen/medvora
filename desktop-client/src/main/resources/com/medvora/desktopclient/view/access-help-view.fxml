@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.medvora.desktopclient.controller.AccessHelpController"
+           styleClass="root-container">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+
+    <VBox alignment="CENTER" spacing="20" maxWidth="620" styleClass="auth-card">
+        <Label text="Medvora" styleClass="brand-title"/>
+        <Label text="Access Help" styleClass="page-title"/>
+        <Label text="Get help with signing in." styleClass="secondary-text"/>
+
+        <GridPane hgap="14" vgap="14" alignment="CENTER">
+            <VBox spacing="6" styleClass="tile-card" prefWidth="270" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label text="Sign-in details" styleClass="field-label"/>
+                <Label text="Forgot your username or password? Contact your facility administrator." wrapText="true" styleClass="secondary-text"/>
+            </VBox>
+
+            <VBox spacing="6" styleClass="tile-card" prefWidth="270" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label text="Locked account" styleClass="field-label"/>
+                <Label text="If your account is locked or inactive, ask your administrator to review it." wrapText="true" styleClass="secondary-text"/>
+            </VBox>
+
+            <VBox spacing="6" styleClass="tile-card" prefWidth="270" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="New account" styleClass="field-label"/>
+                <Label text="Ask your administrator to create an account and assign your access." wrapText="true" styleClass="secondary-text"/>
+            </VBox>
+
+            <VBox spacing="6" styleClass="tile-card" prefWidth="270" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label text="Connection issues" styleClass="field-label"/>
+                <Label text="Check your connection to the facility network, then try again." wrapText="true" styleClass="secondary-text"/>
+            </VBox>
+        </GridPane>
+
+        <HBox spacing="16" alignment="CENTER">
+            <Button text="Check Connection" onAction="#handleCheckConnection" styleClass="btn-secondary"/>
+            <Button fx:id="backToSignInButton" text="Back to Sign In" onAction="#handleBackToSignIn" styleClass="btn-primary"/>
+        </HBox>
+
+        <Label text="Medicine inventory and replenishment" styleClass="secondary-text" style="-fx-font-size: 11px;"/>
+    </VBox>
+</StackPane>

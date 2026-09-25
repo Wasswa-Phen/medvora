@@ -65,7 +65,7 @@
                         <id>default-cli</id>
 
                         <configuration>
-                            <mainClass>com.medvora.desktopclient/com.medvora.desktopclient.HelloApplication</mainClass>
+                            <mainClass>com.medvora.desktopclient/com.medvora.desktopclient.MedvoraApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

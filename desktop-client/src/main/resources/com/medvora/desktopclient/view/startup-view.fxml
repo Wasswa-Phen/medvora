@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane styleClass="root-container" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.medvora.desktopclient.controller.StartupController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+
+    <VBox alignment="CENTER" maxHeight="300" maxWidth="440" spacing="16" styleClass="auth-card">
+        <Label styleClass="brand-title" text="Medvora" />
+        <Label styleClass="secondary-text" text="Ready for care." />
+        <ProgressBar fx:id="progressBar" prefWidth="320" style="-fx-accent: #0E9384; -fx-padding: 8 0;" />
+        <Label styleClass="secondary-text" text="Preparing your workspace..." />
+        <Label style="-fx-font-size: 11px;" styleClass="secondary-text" text="Medicine inventory and replenishment" />
+    </VBox>
+</StackPane>

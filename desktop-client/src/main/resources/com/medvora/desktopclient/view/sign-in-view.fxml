@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import java.net.URL?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.medvora.desktopclient.controller.SignInController"
+           styleClass="root-container">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+
+    <VBox alignment="CENTER" spacing="16" maxWidth="420" maxHeight="520" styleClass="auth-card">
+        <Label text="Medvora" styleClass="brand-title"/>
+        <Label text="Sign In" styleClass="page-title"/>
+        <Label text="Use your assigned account to continue." styleClass="secondary-text"/>
+
+        <VBox spacing="6" alignment="CENTER_LEFT" maxWidth="Infinity">
+            <Label text="Username" styleClass="field-label"/>
+            <TextField fx:id="usernameField" promptText="Enter your username" styleClass="text-input-field"/>
+        </VBox>
+
+        <VBox spacing="6" alignment="CENTER_LEFT" maxWidth="Infinity">
+            <Label text="Password" styleClass="field-label"/>
+            <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="text-input-field"/>
+        </VBox>
+
+        <Button text="Sign In" onAction="#handleSignIn" maxWidth="Infinity" styleClass="btn-primary"/>
+
+        <Hyperlink fx:id="accessHelpLink" text="Access Help" onAction="#handleAccessHelp" styleClass="link-action"/>
+
+        <Label text="Accounts are managed by your administrator." styleClass="secondary-text" style="-fx-font-size: 11px;"/>
+    </VBox>
+</StackPane>
