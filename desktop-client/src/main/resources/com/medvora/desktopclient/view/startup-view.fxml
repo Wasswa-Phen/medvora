@@ -3,6 +3,8 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -12,6 +14,11 @@
     </stylesheets>
 
     <VBox alignment="CENTER" maxHeight="300" maxWidth="440" spacing="16" styleClass="auth-card">
+        <ImageView fitWidth="160" preserveRatio="true">
+            <image>
+                <Image url="@../images/logo.png" />
+            </image>
+        </ImageView>
         <Label styleClass="brand-title" text="Medvora" />
         <Label styleClass="secondary-text" text="Ready for care." />
         <ProgressBar fx:id="progressBar" prefWidth="320" style="-fx-accent: #0E9384; -fx-padding: 8 0;" />
