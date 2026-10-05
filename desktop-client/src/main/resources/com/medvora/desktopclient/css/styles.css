@@ -127,3 +127,77 @@
     -fx-background-radius: 8px;
     -fx-padding: 16px;
 }
+
+/* ==========================================================================
+   Startup View Custom Styling (Exact match to target redesign)
+   ========================================================================== */
+
+.startup-root {
+    -fx-background-color: 
+        radial-gradient(focus-angle 0deg, focus-distance 0%, center 100% 0%, radius 50%, rgba(219, 234, 254, 0.70), transparent 100%),
+        radial-gradient(focus-angle 0deg, focus-distance 0%, center 0% 100%, radius 50%, rgba(204, 251, 241, 0.65), transparent 100%),
+        #F8FAFC;
+}
+
+.startup-card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 22px;
+    -fx-border-color: rgba(226, 232, 240, 0.8);
+    -fx-border-radius: 22px;
+    -fx-border-width: 1px;
+    -fx-padding: 44px 54px 40px 54px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 30, 80, 0.05), 36, 0.06, 0, 10);
+    -fx-min-width: 580px;
+    -fx-pref-width: 590px;
+    -fx-max-width: 610px;
+}
+
+.startup-brand-title {
+    -fx-font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    -fx-font-size: 38px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111827;
+}
+
+.startup-brand-subtitle {
+    -fx-font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    -fx-font-size: 16px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #475467;
+}
+
+.startup-progress-bar {
+    -fx-pref-width: 430px;
+    -fx-min-width: 430px;
+    -fx-max-width: 430px;
+    -fx-pref-height: 7.5px;
+    -fx-min-height: 7.5px;
+    -fx-max-height: 7.5px;
+}
+
+.startup-progress-bar .track {
+    -fx-background-color: #E2E8F0;
+    -fx-background-radius: 999px;
+    -fx-background-insets: 0;
+}
+
+.startup-progress-bar .bar {
+    -fx-background-color: linear-gradient(to right, #1E60FF 0%, #00A884 100%);
+    -fx-background-radius: 999px;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.startup-status-label {
+    -fx-font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #64748B;
+}
+
+.startup-footer-label {
+    -fx-font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #64748B;
+}
