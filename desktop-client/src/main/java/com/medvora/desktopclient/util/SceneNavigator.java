@@ -1,8 +1,10 @@
 package com.medvora.desktopclient.util;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,8 +20,18 @@ public class SceneNavigator {
             Parent root = loader.load();
 
             if (stage.getScene() == null) {
-                // Standard desktop dimensions: 1280x800 per guide specifications
-                stage.setScene(new Scene(root, 1280, 800));
+                // Detect the usable screen area (excludes taskbar, menu bar, etc.)
+                Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+
+                // Target 1280x800 but clamp to 90% of screen if the screen is smaller
+                double sceneWidth = Math.min(1280, screenBounds.getWidth() * 0.90);
+                double sceneHeight = Math.min(800, screenBounds.getHeight() * 0.90);
+
+                stage.setScene(new Scene(root, sceneWidth, sceneHeight));
+
+                // Centre the window on screen
+                stage.setX((screenBounds.getWidth() - sceneWidth) / 2 + screenBounds.getMinX());
+                stage.setY((screenBounds.getHeight() - sceneHeight) / 2 + screenBounds.getMinY());
             } else {
                 stage.getScene().setRoot(root);
             }

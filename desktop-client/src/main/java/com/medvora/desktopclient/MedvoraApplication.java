@@ -11,8 +11,8 @@ public class MedvoraApplication extends Application {
     @Override
     public void start(Stage stage) {
         stage.setTitle("Medvora");
-        stage.setMinWidth(1024);
-        stage.setMinHeight(768);
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
 
         // Set the window/favicon icon
         try {
