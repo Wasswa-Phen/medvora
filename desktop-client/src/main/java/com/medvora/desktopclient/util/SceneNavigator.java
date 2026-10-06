@@ -11,6 +11,7 @@ public class SceneNavigator {
     public static final String STARTUP_VIEW = "/com/medvora/desktopclient/view/startup-view.fxml";
     public static final String SIGN_IN_VIEW = "/com/medvora/desktopclient/view/sign-in-view.fxml";
     public static final String ACCESS_HELP_VIEW = "/com/medvora/desktopclient/view/access-help-view.fxml";
+    public static final String DASHBOARD_VIEW = "/com/medvora/desktopclient/view/dashboard-view.fxml";
 
     public static void navigate(Stage stage, String fxmlPath) {
         try {

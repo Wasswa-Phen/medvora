@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane styleClass="dashboard-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.medvora.desktopclient.controller.DashboardController">
+    <stylesheets>
+        <URL value="@../css/styles.css" />
+    </stylesheets>
+
+    <!-- ====================================================================== -->
+    <!-- LEFT SIDEBAR -->
+    <!-- ====================================================================== -->
+    <left>
+        <StackPane styleClass="sidebar-container" prefWidth="240" minWidth="240" maxWidth="240">
+            <!-- Subtle wave background decor at bottom-left -->
+            <Region styleClass="sidebar-decor-bottom" StackPane.alignment="BOTTOM_LEFT" />
+
+            <VBox spacing="6" styleClass="sidebar-content">
+                <padding>
+                    <Insets top="18" right="14" bottom="18" left="14" />
+                </padding>
+
+                <!-- Brand Header -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <padding>
+                        <Insets top="4" bottom="16" left="6" right="6" />
+                    </padding>
+                    <ImageView fitHeight="36" preserveRatio="true">
+                        <image>
+                            <Image url="@../images/logo.png" />
+                        </image>
+                    </ImageView>
+                    <VBox alignment="CENTER_LEFT" spacing="1">
+                        <Label styleClass="sidebar-brand-name" text="Medvora" />
+                        <Label styleClass="sidebar-brand-tagline" text="Ready for care." />
+                    </VBox>
+                </HBox>
+
+                <!-- Main Navigation Items -->
+                <VBox spacing="4">
+                    <!-- Dashboard (Active Pill) -->
+                    <Button fx:id="btnDashboard" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item, nav-item-active">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" styleClass="nav-icon-active" />
+                                <Label text="Dashboard" styleClass="nav-text-active" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Inventory -->
+                    <Button fx:id="btnInventory" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" styleClass="nav-icon" />
+                                <Label text="Inventory" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Stock Operations -->
+                    <Button fx:id="btnStockOperations" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" styleClass="nav-icon" />
+                                <Label text="Stock Operations" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Replenishment -->
+                    <Button fx:id="btnReplenishment" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" styleClass="nav-icon" />
+                                <Label text="Replenishment" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Suppliers -->
+                    <Button fx:id="btnSuppliers" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" styleClass="nav-icon" />
+                                <Label text="Suppliers" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Alerts (with badge 9) -->
+                    <Button fx:id="btnAlerts" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" styleClass="nav-icon" />
+                                <Label text="Alerts" styleClass="nav-text" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label text="9" styleClass="nav-badge-danger" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Reports -->
+                    <Button fx:id="btnReports" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" styleClass="nav-icon" />
+                                <Label text="Reports" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Administration -->
+                    <Button fx:id="btnAdministration" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" styleClass="nav-icon" />
+                                <Label text="Administration" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </VBox>
+
+                <!-- Spacer to push secondary nav to bottom -->
+                <Region VBox.vgrow="ALWAYS" />
+
+                <!-- Bottom Navigation Items -->
+                <VBox spacing="4">
+                    <!-- Help & Support -->
+                    <Button alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" styleClass="nav-icon" />
+                                <Label text="Help &amp; Support" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- My Profile -->
+                    <Button alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" styleClass="nav-icon" />
+                                <Label text="My Profile" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Lock App -->
+                    <Button onAction="#handleLockApp" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" styleClass="nav-icon" />
+                                <Label text="Lock App" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <!-- Sign Out -->
+                    <Button onAction="#handleSignOut" alignment="BASELINE_LEFT" maxWidth="Infinity" styleClass="nav-item">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                <SVGPath content="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" styleClass="nav-icon" />
+                                <Label text="Sign Out" styleClass="nav-text" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </VBox>
+            </VBox>
+        </StackPane>
+    </left>
+
+    <!-- ====================================================================== -->
+    <!-- MAIN CONTENT AREA -->
+    <!-- ====================================================================== -->
+    <center>
+        <BorderPane styleClass="main-canvas">
+            <!-- TOP APP BAR -->
+            <top>
+                <HBox alignment="CENTER_LEFT" spacing="16" styleClass="top-app-bar">
+                    <padding>
+                        <Insets top="12" right="24" bottom="12" left="24" />
+                    </padding>
+
+                    <!-- Clinic Name & Demo Badge -->
+                    <HBox alignment="CENTER_LEFT" spacing="8">
+                        <Label text="Nileview Community Clinic" styleClass="clinic-title" />
+                        <Label text="Demo" styleClass="badge-demo" />
+                    </HBox>
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <!-- Store Selector Dropdown -->
+                    <HBox alignment="CENTER_LEFT" spacing="6" styleClass="store-selector-pill">
+                        <SVGPath content="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" styleClass="store-icon" />
+                        <ComboBox fx:id="storeComboBox" styleClass="store-combo" />
+                    </HBox>
+
+                    <!-- Notification Bell -->
+                    <Button styleClass="btn-icon-subtle">
+                        <graphic>
+                            <SVGPath content="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" styleClass="icon-bell" />
+                        </graphic>
+                    </Button>
+
+                    <!-- User Profile Avatar & Name -->
+                    <HBox alignment="CENTER_LEFT" spacing="8" styleClass="user-profile-btn">
+                        <StackPane styleClass="user-avatar-circle">
+                            <Label text="SN" styleClass="user-avatar-text" />
+                        </StackPane>
+                        <VBox alignment="CENTER_LEFT" spacing="0">
+                            <Label text="Sarah N." styleClass="user-name" />
+                            <Label text="3 roles" styleClass="user-role" />
+                        </VBox>
+                        <SVGPath content="M7 10l5 5 5-5z" styleClass="chevron-icon" />
+                    </HBox>
+                </HBox>
+            </top>
+
+            <!-- SCROLLABLE DASHBOARD BODY -->
+            <center>
+                <ScrollPane fitToWidth="true" styleClass="dashboard-scroll-pane">
+                    <VBox spacing="20" styleClass="dashboard-content-box">
+                        <padding>
+                            <Insets top="20" right="24" bottom="28" left="24" />
+                        </padding>
+
+                        <!-- DASHBOARD PAGE HEADER -->
+                        <HBox alignment="CENTER_LEFT" spacing="16">
+                            <VBox spacing="4">
+                                <Label text="Dashboard" styleClass="page-main-heading" />
+                                <Label text="Main Store · 18 Sep 2026 · Updated 09:30" styleClass="page-sub-meta" />
+                            </VBox>
+
+                            <Region HBox.hgrow="ALWAYS" />
+
+                            <!-- Header Actions: Issue Stock & Receive Stock -->
+                            <HBox alignment="CENTER_RIGHT" spacing="12">
+                                <Button onAction="#handleIssueStock" styleClass="btn-action-outline">
+                                    <graphic>
+                                        <HBox alignment="CENTER" spacing="6">
+                                            <SVGPath content="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" styleClass="icon-action-outline" />
+                                            <Label text="Issue Stock" styleClass="text-action-outline" />
+                                        </HBox>
+                                    </graphic>
+                                </Button>
+
+                                <Button onAction="#handleReceiveStock" styleClass="btn-action-primary">
+                                    <graphic>
+                                        <HBox alignment="CENTER" spacing="6">
+                                            <SVGPath content="M12 4v16m8-8H4" styleClass="icon-action-primary" />
+                                            <Label text="Receive Stock" styleClass="text-action-primary" />
+                                        </HBox>
+                                    </graphic>
+                                </Button>
+                            </HBox>
+                        </HBox>
+
+                        <!-- ============================================================== -->
+                        <!-- ROW 1: 5 KPI METRIC CARDS -->
+                        <!-- ============================================================== -->
+                        <GridPane hgap="14" vgap="14">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                                <ColumnConstraints percentWidth="20" />
+                            </columnConstraints>
+
+                            <!-- Card 1: Medicines -->
+                            <VBox styleClass="kpi-card" GridPane.columnIndex="0" spacing="4">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Medicines" styleClass="kpi-label" />
+                                    </left>
+                                    <right>
+                                        <StackPane styleClass="kpi-icon-box, kpi-icon-box-blue">
+                                            <SVGPath content="M4.5 12.5l8-8a4.95 4.95 0 117 7l-8 8a4.95 4.95 0 11-7-7zm5-1l6 6" styleClass="kpi-icon-svg-blue" />
+                                        </StackPane>
+                                    </right>
+                                </BorderPane>
+                                <Label text="12" styleClass="kpi-value" />
+                                <Label text="Active catalogue" styleClass="kpi-subtext" />
+                            </VBox>
+
+                            <!-- Card 2: In stock -->
+                            <VBox styleClass="kpi-card" GridPane.columnIndex="1" spacing="4">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="In stock" styleClass="kpi-label" />
+                                    </left>
+                                    <right>
+                                        <StackPane styleClass="kpi-icon-box, kpi-icon-box-green">
+                                            <SVGPath content="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" styleClass="kpi-icon-svg-green" />
+                                        </StackPane>
+                                    </right>
+                                </BorderPane>
+                                <Label text="8" styleClass="kpi-value" />
+                                <Label text="medicines" styleClass="kpi-subtext" />
+                            </VBox>
+
+                            <!-- Card 3: Low stock -->
+                            <VBox styleClass="kpi-card" GridPane.columnIndex="2" spacing="4">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Low stock" styleClass="kpi-label" />
+                                    </left>
+                                    <right>
+                                        <StackPane styleClass="kpi-icon-box, kpi-icon-box-amber">
+                                            <SVGPath content="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" styleClass="kpi-icon-svg-amber" />
+                                        </StackPane>
+                                    </right>
+                                </BorderPane>
+                                <Label text="3" styleClass="kpi-value" />
+                                <Label text="medicines" styleClass="kpi-subtext" />
+                            </VBox>
+
+                            <!-- Card 4: Out of stock -->
+                            <VBox styleClass="kpi-card" GridPane.columnIndex="3" spacing="4">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Out of stock" styleClass="kpi-label" />
+                                    </left>
+                                    <right>
+                                        <StackPane styleClass="kpi-icon-box, kpi-icon-box-red">
+                                            <SVGPath content="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" styleClass="kpi-icon-svg-red" />
+                                        </StackPane>
+                                    </right>
+                                </BorderPane>
+                                <Label text="1" styleClass="kpi-value" />
+                                <Label text="medicine" styleClass="kpi-subtext" />
+                            </VBox>
+
+                            <!-- Card 5: Pending approvals -->
+                            <VBox styleClass="kpi-card" GridPane.columnIndex="4" spacing="4">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Pending approvals" styleClass="kpi-label" />
+                                    </left>
+                                    <right>
+                                        <StackPane styleClass="kpi-icon-box, kpi-icon-box-purple">
+                                            <SVGPath content="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" styleClass="kpi-icon-svg-purple" />
+                                        </StackPane>
+                                    </right>
+                                </BorderPane>
+                                <Label text="3" styleClass="kpi-value" />
+                                <Hyperlink onAction="#handleReviewQueue" text="Review queue →" styleClass="kpi-link" />
+                            </VBox>
+                        </GridPane>
+
+                        <!-- ============================================================== -->
+                        <!-- ROW 2: 3 ANALYTICS CARDS -->
+                        <!-- ============================================================== -->
+                        <GridPane hgap="14" vgap="14">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="33.333" />
+                                <ColumnConstraints percentWidth="33.333" />
+                                <ColumnConstraints percentWidth="33.334" />
+                            </columnConstraints>
+
+                            <!-- CARD 1: Stock Status (Donut Chart) -->
+                            <VBox styleClass="analytics-card" GridPane.columnIndex="0" spacing="12">
+                                <VBox spacing="2">
+                                    <Label text="Stock status" styleClass="card-title" />
+                                    <Label text="Usable stock" styleClass="card-subtitle" />
+                                </VBox>
+
+                                <HBox alignment="CENTER" spacing="18">
+                                    <!-- Donut Chart with Centered Text -->
+                                    <StackPane prefWidth="120" prefHeight="120" maxWidth="120" maxHeight="120">
+                                        <Canvas fx:id="stockDonutCanvas" width="120" height="120" />
+                                        <VBox alignment="CENTER" spacing="0">
+                                            <Label text="12" styleClass="donut-center-number" />
+                                            <Label text="medicines" styleClass="donut-center-label" />
+                                        </VBox>
+                                    </StackPane>
+
+                                    <!-- Legend -->
+                                    <VBox spacing="10" alignment="CENTER_LEFT">
+                                        <HBox alignment="CENTER_LEFT" spacing="8">
+                                            <Circle radius="4" fill="#0E9384" />
+                                            <Label text="In stock" styleClass="legend-label" prefWidth="76" />
+                                            <Label text="8" styleClass="legend-value" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="8">
+                                            <Circle radius="4" fill="#F79009" />
+                                            <Label text="Low stock" styleClass="legend-label" prefWidth="76" />
+                                            <Label text="3" styleClass="legend-value" />
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="8">
+                                            <Circle radius="4" fill="#F04438" />
+                                            <Label text="Out of stock" styleClass="legend-label" prefWidth="76" />
+                                            <Label text="1" styleClass="legend-value" />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <!-- CARD 2: Upcoming Expiry -->
+                            <VBox styleClass="analytics-card" GridPane.columnIndex="1" spacing="10">
+                                <BorderPane>
+                                    <left>
+                                        <VBox spacing="2">
+                                            <Label text="Upcoming expiry" styleClass="card-title" />
+                                            <Label text="4 batches · next 90 days" styleClass="card-subtitle" />
+                                        </VBox>
+                                    </left>
+                                    <right>
+                                        <Hyperlink onAction="#handleViewAllExpiry" text="View all" styleClass="card-header-link" />
+                                    </right>
+                                </BorderPane>
+
+                                <!-- Horizontal Bars -->
+                                <VBox spacing="10">
+                                    <!-- Row 0-30 days -->
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label text="0–30 days" styleClass="expiry-bar-label" prefWidth="64" />
+                                        <StackPane HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                                            <Region prefHeight="14" styleClass="expiry-bar-orange" maxWidth="Infinity" />
+                                        </StackPane>
+                                        <Label text="2" styleClass="expiry-bar-count" />
+                                    </HBox>
+
+                                    <!-- Row 31-60 days -->
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label text="31–60 days" styleClass="expiry-bar-label" prefWidth="64" />
+                                        <StackPane HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                                            <Region prefHeight="14" styleClass="expiry-bar-blue" maxWidth="90" />
+                                        </StackPane>
+                                        <Label text="1" styleClass="expiry-bar-count" />
+                                    </HBox>
+
+                                    <!-- Row 61-90 days -->
+                                    <HBox alignment="CENTER_LEFT" spacing="8">
+                                        <Label text="61–90 days" styleClass="expiry-bar-label" prefWidth="64" />
+                                        <StackPane HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                                            <Region prefHeight="14" styleClass="expiry-bar-teal" maxWidth="90" />
+                                        </StackPane>
+                                        <Label text="1" styleClass="expiry-bar-count" />
+                                    </HBox>
+
+                                    <!-- Batches Scale Axis -->
+                                    <VBox spacing="2">
+                                        <HBox alignment="CENTER_LEFT">
+                                            <Region prefWidth="64" />
+                                            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                                <Label text="0" styleClass="scale-tick" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label text="1" styleClass="scale-tick" />
+                                                <Region HBox.hgrow="ALWAYS" />
+                                                <Label text="2" styleClass="scale-tick" />
+                                            </HBox>
+                                            <Region prefWidth="16" />
+                                        </HBox>
+                                        <HBox alignment="CENTER">
+                                            <Label text="Batches" styleClass="scale-title" />
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+
+                                <!-- Bottom warning link -->
+                                <Hyperlink onAction="#handleViewExpiredBatches" text="1 expired batch →" styleClass="expired-warning-link" />
+                            </VBox>
+
+                            <!-- CARD 3: Issues (Line Chart) -->
+                            <VBox styleClass="analytics-card" GridPane.columnIndex="2" spacing="6">
+                                <BorderPane>
+                                    <left>
+                                        <VBox spacing="2">
+                                            <Label text="Issues" styleClass="card-title" />
+                                            <Label text="Paracetamol 500 mg · tablets" styleClass="card-subtitle" />
+                                        </VBox>
+                                    </left>
+                                    <right>
+                                        <Label text="7 days" styleClass="tag-filter-text" />
+                                    </right>
+                                </BorderPane>
+
+                                <StackPane alignment="CENTER" prefHeight="145">
+                                    <Canvas fx:id="issuesLineChartCanvas" width="270" height="145" />
+                                </StackPane>
+                            </VBox>
+                        </GridPane>
+
+                        <!-- ============================================================== -->
+                        <!-- ROW 3: TWO LOWER CARDS (Needs Attention & Recent Activity) -->
+                        <!-- ============================================================== -->
+                        <GridPane hgap="14" vgap="14">
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="60" />
+                                <ColumnConstraints percentWidth="40" />
+                            </columnConstraints>
+
+                            <!-- LEFT CARD: Needs Attention Table -->
+                            <VBox styleClass="table-card" GridPane.columnIndex="0" spacing="12">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Needs attention" styleClass="card-title" />
+                                    </left>
+                                    <right>
+                                        <Hyperlink onAction="#handleViewAllAttention" text="View all 4 →" styleClass="card-header-link" />
+                                    </right>
+                                </BorderPane>
+
+                                <!-- Table Header -->
+                                <GridPane styleClass="table-header-row">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="38" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="18" />
+                                    </columnConstraints>
+                                    <Label text="Medicine" styleClass="th-cell" GridPane.columnIndex="0" />
+                                    <Label text="Usable" styleClass="th-cell" GridPane.columnIndex="1" />
+                                    <Label text="Minimum" styleClass="th-cell" GridPane.columnIndex="2" />
+                                    <Label text="Status" styleClass="th-cell" GridPane.columnIndex="3" />
+                                </GridPane>
+
+                                <!-- Row 1: Amoxicillin -->
+                                <GridPane styleClass="table-data-row" alignment="CENTER_LEFT">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="38" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="18" />
+                                    </columnConstraints>
+                                    <VBox spacing="1" GridPane.columnIndex="0">
+                                        <Label text="Amoxicillin" styleClass="tb-med-name" />
+                                        <Label text="250 mg · capsule" styleClass="tb-med-desc" />
+                                    </VBox>
+                                    <Label text="0 capsules" styleClass="tb-cell" GridPane.columnIndex="1" />
+                                    <Label text="100 capsules" styleClass="tb-cell" GridPane.columnIndex="2" />
+                                    <Label text="Out of stock" styleClass="badge-status-out" GridPane.columnIndex="3" />
+                                </GridPane>
+
+                                <!-- Row 2: Paracetamol -->
+                                <GridPane styleClass="table-data-row" alignment="CENTER_LEFT">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="38" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="18" />
+                                    </columnConstraints>
+                                    <VBox spacing="1" GridPane.columnIndex="0">
+                                        <Label text="Paracetamol" styleClass="tb-med-name" />
+                                        <Label text="500 mg · tablet" styleClass="tb-med-desc" />
+                                    </VBox>
+                                    <Label text="120 tablets" styleClass="tb-cell" GridPane.columnIndex="1" />
+                                    <Label text="200 tablets" styleClass="tb-cell" GridPane.columnIndex="2" />
+                                    <Label text="Low stock" styleClass="badge-status-low" GridPane.columnIndex="3" />
+                                </GridPane>
+
+                                <!-- Row 3: Oral rehydration salts -->
+                                <GridPane styleClass="table-data-row" alignment="CENTER_LEFT">
+                                    <columnConstraints>
+                                        <ColumnConstraints percentWidth="38" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="22" />
+                                        <ColumnConstraints percentWidth="18" />
+                                    </columnConstraints>
+                                    <VBox spacing="1" GridPane.columnIndex="0">
+                                        <Label text="Oral rehydration salts" styleClass="tb-med-name" />
+                                        <Label text="20.5 g · sachet" styleClass="tb-med-desc" />
+                                    </VBox>
+                                    <Label text="18 sachets" styleClass="tb-cell" GridPane.columnIndex="1" />
+                                    <Label text="40 sachets" styleClass="tb-cell" GridPane.columnIndex="2" />
+                                    <Label text="Low stock" styleClass="badge-status-low" GridPane.columnIndex="3" />
+                                </GridPane>
+
+                                <!-- Table Footer -->
+                                <Label text="Usable stock excludes expired and unavailable quantities." styleClass="table-footer-note" />
+                            </VBox>
+
+                            <!-- RIGHT CARD: Recent Activity -->
+                            <VBox styleClass="activity-card" GridPane.columnIndex="1" spacing="12">
+                                <BorderPane>
+                                    <left>
+                                        <Label text="Recent activity" styleClass="card-title" />
+                                    </left>
+                                    <right>
+                                        <Hyperlink onAction="#handleViewAllActivity" text="View all" styleClass="card-header-link" />
+                                    </right>
+                                </BorderPane>
+
+                                <VBox spacing="14">
+                                    <!-- Activity Item 1 -->
+                                    <HBox spacing="10" alignment="TOP_LEFT">
+                                        <Circle radius="4.5" fill="#12B76A" styleClass="timeline-dot">
+                                            <HBox.margin>
+                                                <Insets top="4" />
+                                            </HBox.margin>
+                                        </Circle>
+                                        <VBox spacing="2">
+                                            <Label text="09:24 · Stock received" styleClass="activity-title" />
+                                            <Label text="Ibuprofen 200 mg · +120 tablets" styleClass="activity-desc" />
+                                            <Label text="REC-0028" styleClass="activity-code" />
+                                        </VBox>
+                                    </HBox>
+
+                                    <!-- Activity Item 2 -->
+                                    <HBox spacing="10" alignment="TOP_LEFT">
+                                        <Circle radius="4.5" fill="#2E90FA" styleClass="timeline-dot">
+                                            <HBox.margin>
+                                                <Insets top="4" />
+                                            </HBox.margin>
+                                        </Circle>
+                                        <VBox spacing="2">
+                                            <Label text="09:12 · Stock issued" styleClass="activity-title" />
+                                            <Label text="Paracetamol 500 mg · 30 tablets" styleClass="activity-desc" />
+                                            <Label text="ISS-0064" styleClass="activity-code" />
+                                        </VBox>
+                                    </HBox>
+
+                                    <!-- Activity Item 3 -->
+                                    <HBox spacing="10" alignment="TOP_LEFT">
+                                        <Circle radius="4.5" fill="#9E77ED" styleClass="timeline-dot">
+                                            <HBox.margin>
+                                                <Insets top="4" />
+                                            </HBox.margin>
+                                        </Circle>
+                                        <VBox spacing="2">
+                                            <Label text="08:58 · Request submitted" styleClass="activity-title" />
+                                            <Label text="Amoxicillin 250 mg · 500 capsules" styleClass="activity-desc" />
+                                            <HBox spacing="6" alignment="CENTER_LEFT">
+                                                <Label text="REQ-0017" styleClass="activity-code" />
+                                                <Label text="·" styleClass="activity-dot-sep" />
+                                                <Label text="Awaiting approval" styleClass="badge-awaiting" />
+                                            </HBox>
+                                        </VBox>
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </GridPane>
+
+                    </VBox>
+                </ScrollPane>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>
