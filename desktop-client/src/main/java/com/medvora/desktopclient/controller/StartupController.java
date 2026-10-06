@@ -94,9 +94,10 @@ public class StartupController {
         );
 
         timeline.setOnFinished(event -> {
-            if (progressBar.getScene() != null && progressBar.getScene().getWindow() != null) {
-                Stage stage = (Stage) progressBar.getScene().getWindow();
+            if (progressBar != null && progressBar.getScene() != null && progressBar.getScene().getWindow() instanceof Stage stage) {
                 SceneNavigator.navigate(stage, SceneNavigator.SIGN_IN_VIEW);
+            } else {
+                System.err.println("StartupController: Unable to retrieve active Stage for scene navigation.");
             }
         });
 

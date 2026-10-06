@@ -1,26 +1,58 @@
-# IDE & Editor files (IntelliJ, VS Code, Eclipse, NetBeans, AI IDEs)
-.idea/
-*.iml
+# ===========================================================================
+# Medvora Enterprise .gitignore
+# ===========================================================================
+# POLICY: Share IntelliJ project structure so every team member gets:
+#   - Proper Java class icons (blue C) instead of plain .java text files
+#   - Shared run configurations (Run → Medvora Desktop)
+#   - Consistent project SDK and module settings
+# ===========================================================================
+
+# --- IntelliJ IDEA ---
+# Ignore user-specific and local workspace files
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries/
+.idea/shelf/
+.idea/httpRequests/
+.idea/dataSources/
+.idea/dataSources.local.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/sonarlint/
+.idea/caches/
+.idea/libraries/
+
+# Keep .idea/*.xml project config files (modules, vcs, encodings, compiler, misc)
+# Keep .idea/runConfigurations/ for shared run configs
+# Keep *.iml module descriptor files
+
+# Ignore legacy IntelliJ formats
 *.iws
 *.ipr
-out/
+
+# --- VS Code / Other Editors ---
 .vscode/
-.classpath
-.project
-.settings/
 .antigravity/
 .gravity/
 *.gravity
 
-# Build targets & caches (Maven, Gradle)
+# --- Eclipse ---
+.classpath
+.project
+.settings/
+
+# --- Build output ---
 target/
 **/target/
+out/
 .gradle/
 **/build/
 
-# OS specific files
+# --- OS files ---
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Maven wrapper jar inclusion rule
+# --- Maven wrapper (include the jar) ---
 !/**/.mvn/wrapper/maven-wrapper.jar
